@@ -122,6 +122,10 @@ nav ul li a.active {
     height: auto;
 }
 
+.contact p {
+    margin-bottom: 10px;
+}
+
 /* =========================
    Footer
    ========================= */
