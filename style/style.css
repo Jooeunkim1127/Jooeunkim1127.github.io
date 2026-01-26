@@ -117,9 +117,22 @@ nav ul li a.active {
     font-weight: normal;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .work-expanded {
-    width: 70%;
+    /* width: 70%;
+    height: auto; */
+
+    max-width: 70vw;      /* or 100vw if you want full width */
+    max-height: 80vh;     /* fit within screen height */
+    width: auto;
     height: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .contact p {
