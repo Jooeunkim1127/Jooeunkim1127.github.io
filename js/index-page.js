@@ -43,14 +43,20 @@
 
     try {
       var works = await window.WorksData.fetchWorks();
+      var fragment = document.createDocumentFragment();
       works.forEach(function (work, index) {
-        grid.appendChild(createCard(work, index));
+        fragment.appendChild(createCard(work, index));
       });
+      grid.appendChild(fragment);
     } catch (error) {
       grid.innerHTML = "<p>Unable to load artworks right now.</p>";
       console.error(error);
     }
   }
 
-  document.addEventListener("DOMContentLoaded", renderIndex);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderIndex);
+  } else {
+    renderIndex();
+  }
 })();

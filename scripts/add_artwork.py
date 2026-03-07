@@ -69,6 +69,13 @@ def save_works(works: list[dict]) -> None:
     )
 
 
+def rebuild_noscript_gallery() -> None:
+    subprocess.run(
+        ["python3", str(ROOT / "scripts" / "build_noscript_gallery.py")],
+        check=True,
+    )
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Add a new artwork to data/works.json")
     parser.add_argument("--title", required=True, help="Artwork title")
@@ -139,7 +146,9 @@ def main() -> int:
         works.append(new_work)
 
     save_works(works)
+    rebuild_noscript_gallery()
     print(f"Added artwork id={work_id} to {WORKS_JSON.relative_to(ROOT)}")
+    print("Rebuilt works-noscript.html")
     return 0
 
 

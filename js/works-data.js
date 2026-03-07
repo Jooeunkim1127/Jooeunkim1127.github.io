@@ -1,5 +1,6 @@
 (function () {
   "use strict";
+  var worksPromise = null;
 
   function escapeHtml(value) {
     return String(value)
@@ -17,13 +18,29 @@
     return lines.map(escapeHtml).join("<br>");
   }
 
-  async function fetchWorks() {
-    var response = await fetch("data/works.json", { cache: "no-store" });
-    if (!response.ok) {
-      throw new Error("Failed to load works.json");
+  function startWorksFetch() {
+    if (!worksPromise) {
+      worksPromise = fetch("data/works.json")
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Failed to load works.json");
+          }
+          return response.json();
+        })
+        .catch(function (error) {
+          worksPromise = null;
+          throw error;
+        });
     }
-    return response.json();
+    return worksPromise;
   }
+
+  function fetchWorks() {
+    return startWorksFetch();
+  }
+
+  // Start loading data as soon as this script is parsed.
+  startWorksFetch();
 
   window.WorksData = {
     fetchWorks: fetchWorks,

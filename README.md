@@ -5,6 +5,7 @@
 - `index.html` now renders the grid from `data/works.json`.
 - `work.html?id=...` renders a single artwork detail view from the same JSON.
 - Existing `html/*.html` pages are still kept as fallback/legacy pages.
+- `works-noscript.html` is a static no-JavaScript fallback gallery generated from `data/works.json`.
 
 ## Add New Artwork
 
@@ -26,6 +27,7 @@ Notes:
 - `--full` is optional. If omitted, it uses `--thumb`.
 - If you skip `--media-line`, one line with `--title` is used.
 - To control order: use `--position start` or `--after-id "Existing Work.html"`.
+- The script also rebuilds `works-noscript.html` automatically.
 
 ## Manual Edit
 
@@ -39,3 +41,9 @@ Each item uses:
 - `alt`
 - `width`, `height`
 - `mediaLines` (array of lines shown in detail view)
+
+If you edit `data/works.json` manually and want to refresh the no-JS page:
+
+```bash
+python3 scripts/build_noscript_gallery.py
+```
