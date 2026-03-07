@@ -22,7 +22,7 @@
     if (work.height) {
       img.height = work.height;
     }
-    if (index < 6) {
+    if (index < 2) {
       img.loading = "eager";
       img.setAttribute("fetchpriority", "high");
     } else {
