@@ -1,14 +1,19 @@
 # jooeunkim.github.io
 
-## Add New Artwork
+## Data-Driven Portfolio
 
-Use this script to create a new detail page and append a new card to `index.html` in one step.
+- `index.html` now renders the grid from `data/works.json`.
+- `work.html?id=...` renders a single artwork detail view from the same JSON.
+- Existing `html/*.html` pages are still kept as fallback/legacy pages.
+
+## Add New Artwork
 
 ```bash
 python3 scripts/add_artwork.py \
   --title "New Work Title" \
-  --image "assets/p/New Work.jpg" \
-  --page "New Work.html" \
+  --thumb "assets/p/New Work.jpg" \
+  --full "assets/p/New Work.jpg" \
+  --id "New Work.html" \
   --alt "New Work, 2026, Jooeun Kim" \
   --media-line "New Work, 2026" \
   --media-line "Oil on canvas" \
@@ -16,7 +21,21 @@ python3 scripts/add_artwork.py \
 ```
 
 Notes:
-- `--page` is optional. If omitted, the script uses the image filename stem + `.html`.
+- `--id` is optional. If omitted, it uses the thumb image filename stem + `.html`.
 - `--alt` is optional. If omitted, it uses `--title`.
-- If you skip `--media-line`, the detail page will show one line using `--title`.
-- The script blocks duplicates by default. Use `--force` only if you intentionally want to overwrite an existing detail page or add a duplicate card.
+- `--full` is optional. If omitted, it uses `--thumb`.
+- If you skip `--media-line`, one line with `--title` is used.
+- To control order: use `--position start` or `--after-id "Existing Work.html"`.
+
+## Manual Edit
+
+You can also edit `data/works.json` directly.
+Each item uses:
+
+- `id`
+- `title`
+- `thumbSrc`
+- `fullSrc`
+- `alt`
+- `width`, `height`
+- `mediaLines` (array of lines shown in detail view)
