@@ -72,38 +72,35 @@ nav ul li a.active {
 }
 
 /* =========================
-   Works Grid
+   Works Grid (무조건 나란히 3줄 고정!)
    ========================= */
 .works-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 40px;
+    column-count: 3;          /* 무조건 가로로 3줄 배치 */
+    column-gap: 40px;         /* 사진들 사이의 가로 간격 */
     width: 100%;
 }
 
 .work-item {
-    display: flex;
-    flex-direction: column;
+    display: inline-block;    /* 세 줄 안에서 박스가 쪼개지지 않도록 방지 */
+    break-inside: avoid;      /* masonry 레이아웃의 필수 속성 */
+    width: 100%;
+    margin-bottom: 40px;      /* 사진들 사이의 세로 간격 */
     cursor: pointer;
 }
 
-/* Image Placeholder */
+/* Image Placeholder (기존 padding-bottom 66.66% 제거) */
 .image-placeholder {
     width: 100%;
-    padding-bottom: 66.66%; /* 3:2 aspect ratio */
     background-color: transparent;
     margin-bottom: 12px;
-    position: relative;
     overflow: hidden;
 }
 
+/* 사진 원래 비율 그대로 가로에 맞춰 자연스럽게 흐르도록 설정 */
 .image-placeholder img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: auto;             /* 원본 비율 유지 */
+    display: block;
     opacity: 0.8;
     transition: opacity 0.3s ease;
 }
