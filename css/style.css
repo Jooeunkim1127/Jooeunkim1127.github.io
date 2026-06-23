@@ -75,17 +75,17 @@ nav ul li a.active {
    Works Grid (무조건 나란히 3줄 고정!)
    ========================= */
 .works-grid {
-    column-count: 3;          /* 무조건 가로로 3줄 배치 */
-    column-gap: 40px;         /* 사진들 사이의 가로 간격 */
-    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* 칼같이 가로 3열로 쪼개기 */
+    gap: 40px;                                        /* 사진들 사이의 간격 */
+    width: 100% !important;
+    max-width: 1200px;                                /* 가운데 정렬용 최대 너비 */
+    margin: 0 auto !important;                        /* 화면 정중앙 배치 */
 }
 
 .work-item {
-    display: inline-block;    /* 세 줄 안에서 박스가 쪼개지지 않도록 방지 */
-    break-inside: avoid;      /* masonry 레이아웃의 필수 속성 */
-    width: 100%;
-    margin-bottom: 40px;      /* 사진들 사이의 세로 간격 */
-    cursor: pointer;
+    display: block !important;                        /* 세로 쪼개짐 방지 무력화 */
+    width: 100% !important;
 }
 
 /* Image Placeholder (기존 padding-bottom 66.66% 제거) */
