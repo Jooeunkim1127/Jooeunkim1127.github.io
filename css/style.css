@@ -152,7 +152,7 @@ footer {
    ========================= */
 @media (max-width: 768px) {
     body {
-        padding: 20px;
+        padding: 10px;
     }
 
     header {
