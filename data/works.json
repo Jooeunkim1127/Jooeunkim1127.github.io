@@ -1,5 +1,33 @@
 [
   {
+    "id": "n.html",
+    "title": "Untitled, 2026",
+    "legacyPage": "html/n.html",
+    "thumbSrc": "assets/2026/n.jpg",
+    "fullSrc": "assets/2026/n.jpg",
+    "alt": "Untitled, 2026, Jooeun Kim",
+    "width": 1500,
+    "height": 1000,
+    "mediaLines": [
+      "Untitled, 2026",
+      "Acrylic, oil, colored pencil, pastel, canvas",
+    ]
+  },
+  {
+    "id": "n2.html",
+    "title": "Details, 2026",
+    "legacyPage": "html/n2.html",
+    "thumbSrc": "assets/2026/n2.jpg",
+    "fullSrc": "assets/2026/n2.jpg",
+    "alt": "Details, 2026, Jooeun Kim",
+    "width": 1500,
+    "height": 1000,
+    "mediaLines": [
+      "Details, 2026",
+      "Acrylic, oil, colored pencil, pastel, canvas",
+    ]
+  },
+  {
     "id": "DSC02871.html",
     "title": "Untitled, 2024",
     "legacyPage": "html/DSC02871.html",
