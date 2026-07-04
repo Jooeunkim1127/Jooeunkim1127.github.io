@@ -10,7 +10,7 @@
 
     var link = document.createElement("a");
     link.className = "link";
-    link.href = "work.html?id=" + encodeURIComponent(work.id);
+    link.href = "html/work.html?id=" + encodeURIComponent(work.id);
 
     var img = document.createElement("img");
     img.src = work.thumbSrc;
