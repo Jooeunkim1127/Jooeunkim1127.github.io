@@ -124,7 +124,7 @@ main {
     /* width: 80%;
     height: auto; */
 
-    max-width: 70vw;      /* or 100vw if you want full width */
+    max-width: 80vw;      /* or 100vw if you want full width */
     max-height: 80vh;     /* fit within screen height */
     width: auto;
     height: auto;
